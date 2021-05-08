@@ -24,7 +24,7 @@ class TestKBinsDiscretizer(base_test.BaseComponentTest):
         if isinstance(X_expected, csr_matrix):
             X_expected = X_expected.todense()
 
-        assert repr(actual.preprocessor) == repr(expected)
+        assert repr(actual.estimator) == repr(expected)
         assert np.allclose(X_actual, X_expected)
 
     def test_configured(self):
@@ -43,5 +43,5 @@ class TestKBinsDiscretizer(base_test.BaseComponentTest):
         if isinstance(X_expected, csr_matrix):
             X_expected = X_expected.todense()
 
-        assert repr(actual.preprocessor) == repr(expected)
+        assert repr(actual.estimator) == repr(expected)
         assert np.allclose(X_actual, X_expected)

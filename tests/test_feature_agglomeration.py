@@ -22,7 +22,7 @@ class TestFeatureAgglomerationComponent(base_test.BaseComponentTest):
         expected.fit(X_train, y_train)
         X_expected = expected.transform(X_test)
 
-        assert repr(actual.preprocessor) == repr(expected)
+        assert repr(actual.estimator) == repr(expected)
         assert np.allclose(X_actual, X_expected)
 
     def test_configured(self):
@@ -50,5 +50,5 @@ class TestFeatureAgglomerationComponent(base_test.BaseComponentTest):
         expected.fit(X_train, y_train)
         X_expected = expected.transform(X_test)
 
-        assert repr(actual.preprocessor) == repr(expected)
+        assert repr(actual.estimator) == repr(expected)
         assert np.allclose(X_actual, X_expected)

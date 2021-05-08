@@ -23,9 +23,9 @@ class KBinsDiscretizer(PreprocessingAlgorithm):
         return KBinsDiscretizer(n_bins=self.n_bins, encode=self.encode, strategy=self.strategy)
 
     def transform(self, X):
-        if self.preprocessor is None:
+        if self.estimator is None:
             raise ValueError()
-        Xt = self.preprocessor.transform(X)
+        Xt = self.estimator.transform(X)
 
         # TODO sparse matrix currently not supported
         if isinstance(Xt, csr_matrix):

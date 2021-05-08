@@ -53,7 +53,7 @@ class DataPreprocessorChoice(ComponentChoice):
         return cs
 
     def transform(self, X):
-        return self.choice.transform(X)
+        return self.estimator.transform(X)
 
     def fit_transform(self, X, y=None):
-        return self.choice.fit(X, y).transform(X)
+        return self.estimator.fit(X, y).transform(X)

@@ -66,21 +66,21 @@ class ClassifierChoice(ComponentChoice, PredictionMixin):
     def fit(self, X, y, **kwargs):
         if kwargs is None:
             kwargs = {}
-        return self.choice.fit(X, y, **kwargs)
+        return self.estimator.fit(X, y, **kwargs)
 
     def predict(self, X):
-        return self.choice.predict(X)
+        return self.estimator.predict(X)
 
     def predict_proba(self, X):
-        return self.choice.predict_proba(X)
+        return self.estimator.predict_proba(X)
 
     def estimator_supports_iterative_fit(self):
-        return hasattr(self.choice, 'iterative_fit')
+        return hasattr(self.estimator, 'iterative_fit')
 
     def iterative_fit(self, X, y, n_iter=1, **fit_params):
         if fit_params is None:
             fit_params = {}
-        return self.choice.iterative_fit(X, y, n_iter=n_iter, **fit_params)
+        return self.estimator.iterative_fit(X, y, n_iter=n_iter, **fit_params)
 
     def configuration_fully_fitted(self):
-        return self.choice.configuration_fully_fitted()
+        return self.estimator.configuration_fully_fitted()

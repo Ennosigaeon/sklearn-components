@@ -44,9 +44,9 @@ class SelectKBestComponent(PreprocessingAlgorithm):
             else:
                 X[X < 0] = 0.0
 
-        if self.preprocessor is None:
+        if self.estimator is None:
             raise NotImplementedError()
-        Xt = self.preprocessor.transform(X)
+        Xt = self.estimator.transform(X)
         if Xt.shape[1] == 0:
             raise ValueError("%s removed all features." % self.__class__.__name__)
         return Xt
