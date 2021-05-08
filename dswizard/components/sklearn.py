@@ -67,4 +67,4 @@ class StackingEstimator(BaseEstimator, PredictionMixin):
         self.estimator = params['estimator']
 
     def __repr__(self, N_CHAR_MAX=700):
-        return 'Stacking({})'.format(self.estimator.__repr__())
+        return f'Stacking({self.estimator.__repr__()})'

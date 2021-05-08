@@ -62,11 +62,11 @@ class CapabilitiesTest(TestCase):
         try:
             component().fit(X, y).transform(X)
             if not success:
-                raise AssertionError('Expected failure {}'.format(component))
+                raise AssertionError(f'Expected failure {component}')
         except Exception as ex:
             if success:
                 print(ex)
-                raise AssertionError('Expected success {}'.format(component))
+                raise AssertionError(f'Expected success {component}')
 
     def test_synthetic(self):
         for name, component in CapabilitiesTest.components.items():

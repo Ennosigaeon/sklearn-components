@@ -33,7 +33,7 @@ class FeatureAgglomerationComponent(PreprocessingAlgorithm):
         elif self.pooling_func == "max":
             pooling_func = np.max
         else:
-            raise ValueError('Unknown pooling function \'{}\''.format(self.pooling_func))
+            raise ValueError(f'Unknown pooling function \'{self.pooling_func}\'')
 
         if self.distance_threshold is not None:
             n_clusters = None

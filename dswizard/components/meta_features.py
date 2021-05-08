@@ -46,12 +46,12 @@ class MetaFeatureFactory(object):
             MetaFeatureFactory.logger.warning('Failed to extract MF due to resource constraints')
             return None, None
         elif wrapper.exit_status is pynisher.AnythingException and isinstance(res, Tuple):
-            MetaFeatureFactory.logger.warning('Failed to extract MF due to {}'.format(res[0]))
+            MetaFeatureFactory.logger.warning(f'Failed to extract MF due to {res[0]}')
             return None, None
         elif wrapper.exit_status == 0 and res is not None:
             array = np.atleast_2d(np.fromiter(res.values(), dtype=float))
             if np.isnan(array).any():
-                MetaFeatureFactory.logger.warning('MF are partially NaN: {}'.format(res))
+                MetaFeatureFactory.logger.warning(f'MF are partially NaN: {res}')
                 return None, None
             return res, array
         else:
@@ -77,7 +77,7 @@ class MetaFeatureFactory(object):
         """
         # Checks if number of features is bigger than max_features.
         if X.shape[1] > max_features:
-            raise ValueError('Number of features is bigger then {}'.format(max_features))
+            raise ValueError(f'Number of features is bigger then {max_features}')
 
         missing = pd.isna(X)
         nr_missing_values = MetaFeatureFactory.ft_nr_missing_val(missing)

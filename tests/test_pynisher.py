@@ -30,7 +30,7 @@ def rogue_subprocess():
     pid = os.getpid()
     oldgrp = os.getpgrp()
     os.setpgrp()
-    logger.debug("{}: Changed group id from {} to {}".format(pid, oldgrp, os.getpgrp()))
+    logger.debug(f"{pid}: Changed group id from {oldgrp} to {os.getpgrp()}")
     time.sleep(60)
 
 
@@ -80,7 +80,7 @@ def svc_example(n_samples=10000, n_features=4):
 
 
 def crash_unexpectedly(signum):
-    print("going to receive signal {}.".format(signum))
+    print(f"going to receive signal {signum}.")
     pid = os.getpid()
     time.sleep(1)
     os.kill(pid, signum)
@@ -98,7 +98,7 @@ def cpu_usage():
 
 
 def nested_pynisher(level=2, cputime=5, walltime=5, memlimit=10e24, increment=-1, grace_period=1):
-    print("this is level {}".format(level))
+    print(f"this is level {level}")
     if level == 0:
         spawn_rogue_subprocess(10)
     else:

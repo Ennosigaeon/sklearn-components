@@ -100,7 +100,7 @@ def subprocess_func(func: Callable,
     for i in [x for x in dir(signal) if x.startswith("SIG")]:
         try:
             signum = getattr(signal,i)
-            print("register {}, {}".format(signum, i))
+            print(f"register {signum}, {i}")
             signal.signal(signum, handler)
         except:
             print("Skipping %s"%i)

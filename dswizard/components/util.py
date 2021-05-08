@@ -85,7 +85,7 @@ def prefixed_name(prefix: Optional[str], name: str) -> str:
     """
     Returns the potentially prefixed name name.
     """
-    return name if prefix is None else '{}:{}'.format(prefix, name)
+    return name if prefix is None else f'{prefix}:{name}'
 
 
 def get_type(clazz: str) -> type:
